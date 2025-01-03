@@ -33,6 +33,7 @@ func (t *Trie[V]) Search(values []V) bool {
 // storing children nodes mapped by their corresponding value.
 type node[V comparable] struct {
 	nodes map[V]*node[V]
+	isEnd bool
 }
 
 // newNode creates and initializes a new node with an empty children map.
@@ -46,6 +47,7 @@ func newNode[V comparable]() *node[V] {
 func (n *node[V]) add(val []V, idx int) {
 	// Base case: if the end of the sequence is reached, nothing more to add.
 	if idx == len(val) {
+		n.isEnd = true
 		return
 	}
 
@@ -63,7 +65,7 @@ func (n *node[V]) add(val []V, idx int) {
 func (n *node[V]) search(val []V, idx int) bool {
 	// Base case: if the end of the sequence is reached, the sequence is found.
 	if idx == len(val) {
-		return true
+		return n.isEnd
 	}
 
 	// If there is no corresponding child node for the current value, return false.

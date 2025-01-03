@@ -40,7 +40,7 @@ func TestTrie_Search(t *testing.T) {
 				[]string{"four", "five", "six"},
 				[]string{"seven", "eight", "nine"},
 			},
-			findValue: []string{"one", "two"},
+			findValue: []string{"one", "two", "three"},
 			exp:       true,
 		},
 		{
