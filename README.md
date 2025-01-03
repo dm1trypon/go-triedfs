@@ -12,7 +12,7 @@
 To install the package, run:
 
 ```bash
-go get github.com/yourusername/triedfs
+go get github.com/dm1trypon/triedfs
 ```
 
 ## Usage
